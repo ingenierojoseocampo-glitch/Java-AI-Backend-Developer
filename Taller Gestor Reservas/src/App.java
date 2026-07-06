@@ -14,12 +14,12 @@ public class App {
                 case 2:
                      Operaciones.listar();
                      break;
-                // case 3:
-                //     Operaciones.cancelar(sc);
-                //     break;
-                // case 4:
-                //     Operaciones.verReporteDiario();
-                //     break;
+                case 3:
+                     Operaciones.cancelar(sc);
+                     break;
+                case 4:
+                     Operaciones.verReporteDiario();
+                     break;
                 case 5:
                     System.out.println("Gracias por usar nuestro servicio. Hasta pronto.");
                     break;

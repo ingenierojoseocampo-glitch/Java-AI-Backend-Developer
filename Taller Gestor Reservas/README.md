@@ -1,18 +1,39 @@
-## Getting Started
+# Gestor de Reservas
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Descripción
 
-## Folder Structure
+Este proyecto es una aplicación de consola desarrollada en Java para gestionar las reservas de una peluquería.
 
-The workspace contains two folders by default, where:
+Permite:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- Agendar reservas.
+- Listar las reservas registradas.
+- Cancelar reservas.
+- Mostrar el reporte diario con el total de citas y el dinero facturado.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Requisitos
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+Para ejecutar el programa se necesita:
 
-## Dependency Management
+- Java JDK 17 o superior.
+- Un IDE compatible con Java (IntelliJ IDEA o Visual Studio Code).
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Cómo ejecutar el programa
+
+1. Descargar o clonar este repositorio.
+2. Abrir el proyecto en un IDE compatible con Java.
+3. Ejecutar la clase `App.java`.
+4. En la consola aparecerá el menú principal.
+5. Seleccionar una opción escribiendo el número correspondiente.
+
+## Servicios disponibles
+
+| Código | Servicio | Precio |
+|---------|----------|---------|
+| 1 | Corte de cabello | $25.000 |
+| 2 | Tinte | $60.000 |
+| 3 | Manicure | $30.000 |
+
+## Autor
+
+José Ignacio Ocampo Medina

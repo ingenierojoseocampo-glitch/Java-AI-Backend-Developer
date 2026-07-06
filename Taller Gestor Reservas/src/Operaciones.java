@@ -82,5 +82,49 @@ public class Operaciones {
             System.out.printf("%d. %s - %d:00 - Servicio %d (%s)%n", i + 1, clientes[i], horas[i], servicios[i], nombreServicio(servicios[i]));
         }
     }
-    
+
+    public static void cancelar(Scanner sc) {
+        if (total == 0) {
+            System.out.println("No hay reservas registradas.");
+            return;
+        }
+        int reserva;
+        do {
+            System.out.print("Ingrese el numero de la reserva: ");
+            reserva = sc.nextInt();
+            sc.nextLine();
+        }while (reserva < 1 || reserva > total);
+
+        int indice = reserva - 1;
+        for (int i = indice; i < total - 1; i++) {
+            clientes[i] = clientes[i + 1];
+            horas[i] = horas[i + 1];
+            servicios[i] = servicios[i + 1];
+        }
+        clientes[total - 1] = null;
+        horas[total - 1] = 0;
+        servicios[total - 1] = 0;
+        total--;
+        System.out.println("Reserva cancelada correctamente.");
+    }
+    public static void verReporteDiario() {
+        if (total == 0) {
+            System.out.println("No hay reservas registradas.");
+        }
+        int dineroFacturado = 0;
+        for (int i = 0; i < total; i++) {
+            if (servicios[i] == 1) {
+                dineroFacturado += 25000;
+            }
+            else if (servicios[i] == 2) {
+                dineroFacturado += 60000;
+            }
+            else {
+                dineroFacturado += 30000;
+            }
+        }
+        System.out.println("===== REPORTE DIARIO =====");
+        System.out.println("Total de citas: " + total);
+        System.out.println("Dinero facturado: $" + dineroFacturado);
+    }
 }
