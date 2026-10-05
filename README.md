@@ -27,13 +27,6 @@ Quedan fuera la historia clínica, pagos, inventario, recordatorios, interfaz we
 
 El código organiza responsabilidades en `controller`, `service`, `repository`, `model`, `dto`, `security`, `config` y `exception`, bajo `com.VetTurno.VetTurno`.
 
-```text
-Cliente / Swagger UI
-        │ HTTP; Bearer JWT en rutas privadas
-        ▼
-Controller → Service (reglas de negocio) → Repository (Spring Data JPA) → MySQL
-```
-
 Modelo observado:
 
 - `Propietario` tiene varias `Mascota`; cada mascota referencia a un propietario mediante `propietario_id`.
@@ -69,27 +62,14 @@ jdbc:mysql://localhost:3306/VetTurno
 
 `application.properties` tiene `ddl-auto=update` y registro SQL activado para desarrollo. No uses la actualización automática de esquema como sustituto de migraciones en producción.
 
-`src/main/resources/application-local.properties` está excluido por `.gitignore`; úsalo solo con configuración local.
-
-## Revisión antes de publicar
 
 ## Ejecutar la aplicación
 
 Con MySQL activo y la configuración local preparada, desde la raíz:
 
-**Windows PowerShell**
+Abrir con su IDE de preferencia.
 
-```powershell
-.\mvnw.cmd spring-boot:run
-```
-
-**macOS/Linux**
-
-```bash
-./mvnw spring-boot:run
-```
-
-Espera el mensaje de inicio correcto y comprueba que no haya errores de conexión con MySQL. El puerto por defecto es `8080`. Swagger UI:
+El puerto por defecto es `8080`. Swagger UI:
 
 ```text
 http://localhost:8080/swagger-ui/index.html
