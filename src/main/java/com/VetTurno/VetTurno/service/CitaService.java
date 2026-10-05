@@ -2,6 +2,7 @@ package com.VetTurno.VetTurno.service;
 
 import com.VetTurno.VetTurno.dto.CitaDTO;
 import com.VetTurno.VetTurno.dto.CitaRequest;
+import com.VetTurno.VetTurno.exception.ReglaNegocioException;
 import com.VetTurno.VetTurno.model.Cita;
 import com.VetTurno.VetTurno.model.Mascota;
 import com.VetTurno.VetTurno.model.Veterinario;
@@ -38,17 +39,17 @@ public class CitaService {
         cita.setMotivo(request.getMotivo());
         Mascota mascota = mascotaRepository
                 .findById(request.getMascotaId())
-                .orElseThrow(() -> new RuntimeException("Mascota no encontrada"));
+                .orElseThrow(() -> new ReglaNegocioException("Mascota no encontrada"));
         cita.setMascota(mascota);
         Veterinario veterinario = veterinarioRepository
                 .findById(request.getVeterinarioId())
-                .orElseThrow(() -> new RuntimeException("Veterinario no encontrado"));
+                .orElseThrow(() -> new ReglaNegocioException("Veterinario no encontrado"));
         cita.setVeterinario(veterinario);
         if (request.getFechaHora().isBefore(LocalDateTime.now())) {
-            throw new RuntimeException("No se pueden crear citas en el pasado");
+            throw new ReglaNegocioException("No se pueden crear citas en el pasado");
         }
         if (citaRepository.existsByVeterinario_IdAndFechaHora(veterinario.getId(),  request.getFechaHora())) {
-            throw new RuntimeException("Fecha no Disponible");
+            throw new ReglaNegocioException("Fecha no Disponible");
         }
         Cita citaGuardado = citaRepository.save(cita);
         return new CitaDTO(citaGuardado);

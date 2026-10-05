@@ -1,7 +1,12 @@
 package com.VetTurno.VetTurno.dto;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class VeterinarioRequest {
+    @NotBlank
     private String nombre;
+
+    @NotBlank
     private String especialidad;
 
     public String getNombre() {

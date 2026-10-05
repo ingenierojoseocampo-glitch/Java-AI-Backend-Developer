@@ -1,11 +1,22 @@
 package com.VetTurno.VetTurno.dto;
 
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 import java.time.LocalDateTime;
 
 public class CitaRequest {
+    @NotNull
+    @Future
     private LocalDateTime fechaHora;
+    @NotBlank
     private String motivo;
+
+    @NotNull
     private Long mascotaId;
+
+    @NotNull
     private Long veterinarioId;
 
 

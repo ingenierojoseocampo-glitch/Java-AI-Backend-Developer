@@ -1,8 +1,17 @@
 package com.VetTurno.VetTurno.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
 public class PropietarioRequest {
+    @NotBlank
     private String nombre;
+
+    @NotBlank
+    @Email
     private String email;
+
+    @NotBlank
     private String telefono;
 
     public String getNombre() {

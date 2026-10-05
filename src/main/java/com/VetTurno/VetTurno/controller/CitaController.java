@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import com.VetTurno.VetTurno.dto.CitaDTO;
 import com.VetTurno.VetTurno.dto.CitaRequest;
 import com.VetTurno.VetTurno.service.CitaService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class CitaController {
         return citaService.listarCitas();
     }
     @PostMapping
-    public ResponseEntity<CitaDTO> crearCita(@RequestBody CitaRequest request) {
+    public ResponseEntity<CitaDTO> crearCita(@Valid @RequestBody CitaRequest request) {
 
         CitaDTO cita = citaService.agregarCita(request);
 

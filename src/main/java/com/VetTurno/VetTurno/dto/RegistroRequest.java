@@ -1,8 +1,16 @@
 package com.VetTurno.VetTurno.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 public class RegistroRequest {
 
+    @NotBlank
+    @Email
     private String email;
+    @NotBlank
+    @Size(min = 4)
     private String password;
 
     public String getEmail() {

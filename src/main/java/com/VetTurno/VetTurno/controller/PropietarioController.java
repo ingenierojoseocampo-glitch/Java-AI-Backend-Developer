@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import com.VetTurno.VetTurno.dto.PropietarioDTO;
 import com.VetTurno.VetTurno.dto.PropietarioRequest;
 import com.VetTurno.VetTurno.service.PropietarioService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class PropietarioController {
             return propietarioService.listarPropietarios();
         }
         @PostMapping
-        public ResponseEntity<PropietarioDTO> crearPropietario(@RequestBody PropietarioRequest request) {
+        public ResponseEntity<PropietarioDTO> crearPropietario(@Valid @RequestBody PropietarioRequest request) {
 
             PropietarioDTO propietario = propietarioService.agregarPropietarios(request);
 

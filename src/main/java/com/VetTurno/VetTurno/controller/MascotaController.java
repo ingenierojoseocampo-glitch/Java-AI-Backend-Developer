@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import com.VetTurno.VetTurno.dto.MascotaDTO;
 import com.VetTurno.VetTurno.dto.MascotaRequest;
 import com.VetTurno.VetTurno.service.MascotaService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class MascotaController {
         return mascotaService.listarMascotas();
     }
     @PostMapping
-    public ResponseEntity<MascotaDTO> crearMascota(@RequestBody MascotaRequest request) {
+    public ResponseEntity<MascotaDTO> crearMascota(@Valid @RequestBody MascotaRequest request) {
 
         MascotaDTO mascota = mascotaService.agregarMascotas(request);
 

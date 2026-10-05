@@ -1,10 +1,19 @@
 package com.VetTurno.VetTurno.dto;
 
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 public class MascotaRequest {
+    @NotBlank
     private String nombre;
+
+    @NotBlank
     private String especie;
+
     private String raza;
+
+    @NotNull
     private Long propietarioId;
 
 

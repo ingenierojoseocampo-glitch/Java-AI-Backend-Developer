@@ -5,6 +5,7 @@ import com.VetTurno.VetTurno.dto.MascotaDTO;
 import com.VetTurno.VetTurno.dto.MascotaRequest;
 import com.VetTurno.VetTurno.dto.PropietarioDTO;
 import com.VetTurno.VetTurno.dto.PropietarioRequest;
+import com.VetTurno.VetTurno.exception.ReglaNegocioException;
 import com.VetTurno.VetTurno.model.Mascota;
 import com.VetTurno.VetTurno.model.Propietario;
 import com.VetTurno.VetTurno.repository.MascotaRepository;
@@ -39,7 +40,7 @@ public class MascotaService {
         mascota.setRaza(request.getRaza());
         Propietario propietario = propietarioRepository
                 .findById(request.getPropietarioId())
-                .orElse(null);
+                .orElseThrow(() -> new ReglaNegocioException("Propietario no encontrado"));
         mascota.setPropietario(propietario);
         Mascota mascotaGuardado = mascotaRepository.save(mascota);
         return new MascotaDTO(mascotaGuardado);

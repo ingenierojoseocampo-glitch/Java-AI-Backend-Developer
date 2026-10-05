@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import com.VetTurno.VetTurno.dto.VeterinarioDTO;
 import com.VetTurno.VetTurno.dto.VeterinarioRequest;
 import com.VetTurno.VetTurno.service.VeterinarioService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class VeterinarioController {
         return veterinarioService.listarVeterinarios();
     }
     @PostMapping
-    public ResponseEntity<VeterinarioDTO> crearVeterinario(@RequestBody VeterinarioRequest request) {
+    public ResponseEntity<VeterinarioDTO> crearVeterinario(@Valid @RequestBody VeterinarioRequest request) {
 
         VeterinarioDTO veterinario = veterinarioService.agregarVeterinario(request);
 
