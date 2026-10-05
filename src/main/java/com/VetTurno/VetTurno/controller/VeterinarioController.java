@@ -1,5 +1,6 @@
 package com.VetTurno.VetTurno.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import com.VetTurno.VetTurno.dto.VeterinarioDTO;
 import com.VetTurno.VetTurno.dto.VeterinarioRequest;
 import com.VetTurno.VetTurno.service.VeterinarioService;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@SecurityRequirement(name = "bearerAuth")
 @RequestMapping("/api/veterinarios")
 public class VeterinarioController {
 

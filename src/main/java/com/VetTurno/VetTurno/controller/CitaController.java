@@ -1,5 +1,6 @@
 package com.VetTurno.VetTurno.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import com.VetTurno.VetTurno.dto.CitaDTO;
 import com.VetTurno.VetTurno.dto.CitaRequest;
 import com.VetTurno.VetTurno.service.CitaService;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@SecurityRequirement(name = "bearerAuth")
 @RequestMapping("/api/citas")
 public class CitaController {
 
