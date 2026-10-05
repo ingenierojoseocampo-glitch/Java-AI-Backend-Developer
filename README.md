@@ -41,6 +41,7 @@ Los controllers reciben HTTP y delegan en services; los services resuelven relac
 - Git y MySQL Server.
 - JDK compatible con el `pom.xml` actual.
 - Maven no necesita instalación si se usa el wrapper incluido (`mvnw` / `mvnw.cmd`).
+- El IDE que prefiera.
 
 ## Preparar MySQL y la configuración local
 
@@ -65,9 +66,9 @@ jdbc:mysql://localhost:3306/VetTurno
 
 ## Ejecutar la aplicación
 
-Con MySQL activo y la configuración local preparada, desde la raíz:
-
 Abrir con su IDE de preferencia.
+
+Con MySQL activo y la configuración local preparada.
 
 El puerto por defecto es `8080`. Swagger UI:
 
