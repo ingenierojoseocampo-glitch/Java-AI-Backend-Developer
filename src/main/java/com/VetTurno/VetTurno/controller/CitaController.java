@@ -21,8 +21,14 @@ public class CitaController {
         this.citaService = citaService;
     }
     @GetMapping
-    public List<CitaDTO> obtenerCitas() {
-        return citaService.listarCitas();
+    public List<CitaDTO> obtenerCitas(
+            @RequestParam(required = false) Long veterinarioId) {
+
+        if (veterinarioId == null) {
+            return citaService.listarCitas();
+        }
+
+        return citaService.listarCitasPorVeterinario(veterinarioId);
     }
     @PostMapping
     public ResponseEntity<CitaDTO> crearCita(@Valid @RequestBody CitaRequest request) {

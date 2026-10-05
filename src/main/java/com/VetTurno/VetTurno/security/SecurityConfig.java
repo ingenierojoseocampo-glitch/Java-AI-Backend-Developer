@@ -1,7 +1,5 @@
 package com.VetTurno.VetTurno.security;
 
-import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
-import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -15,12 +13,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
-@SecurityScheme(
-        name = "bearerAuth",
-        type = SecuritySchemeType.HTTP,
-        scheme = "bearer",
-        bearerFormat = "JWT"
-)
+
 public class SecurityConfig {
 
     private final JwtAuthFilter jwtAuthFilter;
@@ -37,7 +30,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET,
                                 "/swagger-ui/**", "/swagger-ui.html", "/v3/api-docs/**")
                         .permitAll()
-                        .requestMatchers("/api/auth/registro", "/api/auth/login").permitAll()
+                        .requestMatchers("/api/auth/register", "/api/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/veterinarios", "/api/veterinarios/**")
                         .hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/api/**").authenticated()

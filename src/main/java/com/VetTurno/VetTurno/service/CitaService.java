@@ -33,6 +33,17 @@ public class CitaService {
         }
         return citasDTO;
     }
+    public List<CitaDTO> listarCitasPorVeterinario(Long veterinarioId) {
+        List<Cita> citas = citaRepository.findByVeterinario_Id(veterinarioId);
+
+        List<CitaDTO> citasDTO = new ArrayList<>();
+
+        for (Cita cita : citas) {
+            citasDTO.add(new CitaDTO(cita));
+        }
+
+        return citasDTO;
+    }
     public CitaDTO agregarCita(CitaRequest request) {
         Cita cita = new Cita();
         cita.setFechaHora(request.getFechaHora());

@@ -20,7 +20,7 @@ public class AuthController {
         this.authService = authService;
     }
 
-    @PostMapping("/registro")
+    @PostMapping("/register")
     public AuthResponse registro(@Valid @RequestBody RegistroRequest request) {
         return authService.registrar(request);
     }
